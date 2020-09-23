@@ -1,5 +1,6 @@
 import regex as re
 
+
 find_text = re.compile('(<[^>]+?>)([^<]+)', re.IGNORECASE)
 find_6_char_words = re.compile('([^\p{Cyrillic}a-z_]|\A)([\p{Cyrillic}a-z]{6})([^\p{Cyrillic}a-z_]|\Z)', re.IGNORECASE)
 find_links = re.compile('(<\s*a[^>]*href=\")https://dou.ua([^\"]*)', re.IGNORECASE)
