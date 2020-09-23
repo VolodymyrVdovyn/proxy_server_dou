@@ -27,7 +27,6 @@ def test_modify_content_2():
     assert new_content == '<p>Всем привет™. Случилась очень неприятная ситуация, и&nbsp;данной™ темой хотел предупредить остальных об&nbsp;очередных новых идеях этого оператора о&nbsp;том как нагреть.</p>'
 
 
-
 def test_replaser():
     content = '<p>sixsix sevense six_si six111 Свежее</p><a href="https://dou.ua/lenta/">Лента</a>'
     new_content = replacer.modify_content(content)
