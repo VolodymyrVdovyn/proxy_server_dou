@@ -15,10 +15,17 @@ def test_modify_content_xfail():
     assert new_content == 'sixsix™ sevense six_si six111 Свежее™'
 
 
-def test_modify_content():
+def test_modify_content_1():
     content = '<p>sixsix sevense six_si six111 Свежее</p>'
     new_content = replacer.modify_content(content)
     assert new_content == '<p>sixsix™ sevense six_si six111 Свежее™</p>'
+
+
+def test_modify_content_2():
+    content = '<p>Всем привет. Случилась очень неприятная ситуация, и&nbsp;данной темой хотел предупредить остальных об&nbsp;очередных новых идеях этого оператора о&nbsp;том как нагреть.</p>'
+    new_content = replacer.modify_content(content)
+    assert new_content == '<p>Всем привет™. Случилась очень неприятная ситуация, и&nbsp;данной™ темой хотел предупредить остальных об&nbsp;очередных новых идеях этого оператора о&nbsp;том как нагреть.</p>'
+
 
 
 def test_replaser():
