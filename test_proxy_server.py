@@ -14,6 +14,7 @@ urls_test_list = [
 
 test_ids = ["Url({})".format(t) for t in urls_test_list]
 
+
 @pytest.mark.xfail(reason="Reason: proxy server don't started")
 @pytest.mark.parametrize("url", urls_test_list, ids=test_ids)
 def test_server_off(url):
@@ -37,5 +38,3 @@ if __name__ == "__main__":
     pytest.main(["-v", "--tb=no", str(__file__) + "::" + "test_server_on"])
 
     server.shutdown()
-
-# python test_proxy_server.py && python test_replacer.py
