@@ -8,7 +8,7 @@ def test_replace_links():
     assert new_content == '<a href="http://127.0.0.1:8888/lenta/">Лента</a>'
 
 
-@pytest.mark.xfail(reason="Reason: not tag in content")
+@pytest.mark.xfail(reason='Reason: not tag in content')
 def test_replace_text_xfail():
     content = 'sixsix sevense six_si six111 Свежее'
     new_content = replacer.modify_content(content)
