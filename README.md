@@ -13,7 +13,7 @@ pip install -r requirements.txt
  
  * запустіть тести
 ```bash
-python test_proxy_server.py && python test_replacer.py
+python -m pytest -v -rx
 ```
 
  * запустіть скрипт

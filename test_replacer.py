@@ -33,5 +33,5 @@ def test_replaser():
     assert new_content == '<p>sixsix™ sevense six_si six111 Свежее™</p><a href="http://127.0.0.1:8888/lenta/">Лента</a>'
 
 
-if __name__ == "__main__":
-    pytest.main(["-v", "-rx", "--tb=no", str(__file__)])
+# if __name__ == "__main__":
+#     pytest.main(["-v", "-rx", "--tb=no", str(__file__)])
