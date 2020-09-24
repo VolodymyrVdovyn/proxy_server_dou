@@ -5,6 +5,17 @@ import threading
 import proxy_server as proxy
 
 
+@pytest.fixture()
+def start_server():
+    server = proxy.HTTPServer(("127.0.0.1", 8888,), proxy.DouProxyHandler,)
+    thread = threading.Thread(target=server.serve_forever)
+    thread.start()
+
+    yield
+
+    server.shutdown()
+
+
 urls_test_list = [
     "http://127.0.0.1:8888/forums/topic/24951",
     "http://127.0.0.1:8888",
@@ -23,12 +34,6 @@ def test_server_off(url):
 
 
 @pytest.mark.parametrize("url", urls_test_list, ids=test_ids)
-def test_server_on(url):
-    server = proxy.HTTPServer(("127.0.0.1", 8888,), proxy.DouProxyHandler,)
-    thread = threading.Thread(target=server.serve_forever)
-    thread.start()
-
+def test_server_on(start_server, url):
     r = requests.get(url)
     assert r.status_code == 200
-    
-    server.shutdown()
